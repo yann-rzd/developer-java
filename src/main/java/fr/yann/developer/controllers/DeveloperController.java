@@ -3,6 +3,7 @@ package fr.yann.developer.controllers;
 import java.time.LocalDate;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +30,14 @@ public class DeveloperController {
 		System.out.println(developer);
 	}
 	
-	
+	@PatchMapping("/{pseudo}/birth-date")
+	public void updateBirthDate(@PathVariable("pseudo") String pseudo, @RequestBody Developer partial) {
+		System.out.println("Partial object = " + partial);
+		Developer developer = new Developer();
+		developer.setPseudo(pseudo);
+		developer.setFirstName("Yann");
+		developer.setFirstName("Rouzaud");
+		developer.setBirthDate(partial.getBirthDate());
+		System.out.println("New object = " + developer);
+	}
 }
