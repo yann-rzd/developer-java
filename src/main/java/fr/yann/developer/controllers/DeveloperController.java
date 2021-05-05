@@ -8,14 +8,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import fr.yann.developer.domain.Developer;
+
+@RestController
 
 @RequestMapping("/developers")
 public class DeveloperController {
 	
 	@GetMapping("/{pseudo}")
-	public Developer getDevById(@PathVariable("pseudo") Long pseudo) {
+	public Developer getDevByPseudo(@PathVariable("pseudo") String pseudo) {
 		Developer developer = new Developer();
 		developer.setPseudo("JackO_Neill");
 		developer.setFirstName("Yann");
@@ -25,7 +28,7 @@ public class DeveloperController {
 		return developer;
 	}
 	
-	@PostMapping("/developers")
+	@PostMapping
 	public void createDeveloper(@RequestBody Developer developer) {
 		System.out.println(developer);
 	}
