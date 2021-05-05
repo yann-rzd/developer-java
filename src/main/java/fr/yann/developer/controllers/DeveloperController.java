@@ -39,7 +39,7 @@ public class DeveloperController {
 		Developer developer = new Developer();
 		developer.setPseudo(pseudo);
 		developer.setFirstName("Yann");
-		developer.setFirstName("Rouzaud");
+		developer.setLastName("Rouzaud");
 		developer.setBirthDate(partial.getBirthDate());
 		System.out.println("New object = " + developer);
 	}
