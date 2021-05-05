@@ -1,25 +1,26 @@
 package fr.yann.developer.controllers;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import fr.yann.developer.domain.Developer;
 
+@RequestMapping("/developers")
 public class DeveloperController {
 	
-	@GetMapping("/developers/{id}")
-	public Developer getDevById(@PathVariable("id") Long id) throws ParseException {
+	@GetMapping("/{pseudo}")
+	public Developer getDevById(@PathVariable("pseudo") Long pseudo) {
 		Developer developer = new Developer();
 		developer.setPseudo("JackO_Neill");
 		developer.setFirstName("Yann");
 		developer.setLastName("Rouzaud");
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		developer.setBirthday(simpleDateFormat.parse("31/08/1993"));
+		LocalDate date = LocalDate.of(1993, 8, 31);
+		developer.setBirthDate(date);
 		return developer;
 	}
 	
@@ -27,5 +28,6 @@ public class DeveloperController {
 	public void createDeveloper(@RequestBody Developer developer) {
 		System.out.println(developer);
 	}
-
+	
+	
 }

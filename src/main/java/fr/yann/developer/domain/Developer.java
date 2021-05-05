@@ -1,16 +1,16 @@
 package fr.yann.developer.domain;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Developer {
 	
 	private String pseudo;
 	private String firstName;
 	private String lastName;
-	private Date birthday;
+	private LocalDate birthDate;
 	
 	public Developer() {
-		
+		//
 	}
 
 	public String getPseudo() {
@@ -37,18 +37,18 @@ public class Developer {
 		this.lastName = lastName;
 	}
 
-	public Date getBirthday() {
-		return birthday;
+	public LocalDate getBirthDate() {
+		return birthDate;
 	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
+	
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
 	}
 
 	@Override
 	public String toString() {
-		return "Developer [pseudo=" + pseudo + ", firstName=" + firstName + ", lastName=" + lastName + ", birthday="
-				+ birthday + "]";
+		return "Developer [pseudo=" + pseudo + ", firstName=" + firstName + ", lastName=" + lastName + ", birthdate="
+				+ birthDate + "]";
 	}
 
 }
