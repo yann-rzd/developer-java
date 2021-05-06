@@ -2,15 +2,29 @@ package fr.yann.developer.domain;
 
 import java.time.LocalDate;
 
-public class Project {
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
+import org.hibernate.validator.constraints.Length;
+
+public class ProjectCreate {
 	
+	@NotBlank
+	@Length(min = 1, max = 255)
 	private String name;
+	@NotBlank
+	@Length(min = 100, max = 1000)
 	private String description;
+	@NotNull
+	@FutureOrPresent
 	private LocalDate startDate;
 	private LocalDate endDate;
-	private int annualBudget;
+	@Positive
+	private Integer annualBudget;
 	
-	public Project() {
+	public ProjectCreate() {
 		//
 	}
 	
@@ -46,11 +60,11 @@ public class Project {
 		this.endDate = endDate;
 	}
 
-	public int getAnnualBudget() {
+	public Integer getAnnualBudget() {
 		return annualBudget;
 	}
 
-	public void setAnnualBudget(int annualBudget) {
+	public void setAnnualBudget(Integer annualBudget) {
 		this.annualBudget = annualBudget;
 	}
 
