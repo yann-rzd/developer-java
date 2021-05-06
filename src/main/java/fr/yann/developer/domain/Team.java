@@ -1,8 +1,15 @@
 package fr.yann.developer.domain;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
 public class Team {
 	
+	@NotNull
+	@Length(min = 1, max = 255)
 	private String name;
+	@NotNull
 	private Boolean agile;
 	
 	public Team() {
