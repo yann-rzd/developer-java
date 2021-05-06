@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.yann.developer.domain.DeveloperCreate;
+import fr.yann.developer.domain.DeveloperPatch;
 
 @RestController
 
@@ -34,13 +35,15 @@ public class DeveloperController {
 	}
 	
 	@PatchMapping("/{pseudo}/birth-date")
-	public void updateBirthDate(@PathVariable("pseudo") String pseudo, @RequestBody DeveloperCreate partial) {
+	public void updateBirthDate(@PathVariable("pseudo") String pseudo, @RequestBody DeveloperPatch partial) {
 		System.out.println("Partial object = " + partial);
-		DeveloperCreate developer = new DeveloperCreate();
-		developer.setPseudo(pseudo);
-		developer.setFirstName("Yann");
-		developer.setLastName("Rouzaud");
-		developer.setBirthDate(partial.getBirthDate());
-		System.out.println("New object = " + developer);
+		
+//		  DeveloperCreate developer = new DeveloperCreate();
+//		  developer.setPseudo(pseudo); developer.setFirstName("Yann");
+//		  developer.setLastName("Rouzaud");
+//		  developer.setBirthDate(partial.getBirthDate());
+		 
+		System.out.println("Update birth date of: " + pseudo
+				+ " with new date : " + partial.getBirthDate());
 	}
 }
