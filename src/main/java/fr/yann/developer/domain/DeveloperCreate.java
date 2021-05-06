@@ -2,14 +2,14 @@ package fr.yann.developer.domain;
 
 import java.time.LocalDate;
 
-public class Developer {
+public class DeveloperCreate {
 	
 	private String pseudo;
 	private String firstName;
 	private String lastName;
 	private LocalDate birthDate;
 	
-	public Developer() {
+	public DeveloperCreate() {
 		//
 	}
 

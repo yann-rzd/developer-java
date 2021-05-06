@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.yann.developer.domain.Developer;
+import fr.yann.developer.domain.DeveloperCreate;
 
 @RestController
 
@@ -18,8 +18,8 @@ import fr.yann.developer.domain.Developer;
 public class DeveloperController {
 	
 	@GetMapping("/{pseudo}")
-	public Developer getDevByPseudo(@PathVariable("pseudo") String pseudo) {
-		Developer developer = new Developer();
+	public DeveloperCreate getDevByPseudo(@PathVariable("pseudo") String pseudo) {
+		DeveloperCreate developer = new DeveloperCreate();
 		developer.setPseudo("JackO_Neill");
 		developer.setFirstName("Yann");
 		developer.setLastName("Rouzaud");
@@ -29,14 +29,14 @@ public class DeveloperController {
 	}
 	
 	@PostMapping
-	public void createDeveloper(@RequestBody Developer developer) {
+	public void createDeveloper(@RequestBody DeveloperCreate developer) {
 		System.out.println(developer);
 	}
 	
 	@PatchMapping("/{pseudo}/birth-date")
-	public void updateBirthDate(@PathVariable("pseudo") String pseudo, @RequestBody Developer partial) {
+	public void updateBirthDate(@PathVariable("pseudo") String pseudo, @RequestBody DeveloperCreate partial) {
 		System.out.println("Partial object = " + partial);
-		Developer developer = new Developer();
+		DeveloperCreate developer = new DeveloperCreate();
 		developer.setPseudo(pseudo);
 		developer.setFirstName("Yann");
 		developer.setLastName("Rouzaud");
