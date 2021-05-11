@@ -2,6 +2,8 @@ package fr.yann.developer.controllers;
 
 import java.time.LocalDate;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +32,7 @@ public class DeveloperController {
 	}
 	
 	@PostMapping
-	public void createDeveloper(@RequestBody DeveloperCreate developer) {
+	public void createDeveloper(@Valid @RequestBody DeveloperCreate developer) {
 		System.out.println(developer);
 	}
 	

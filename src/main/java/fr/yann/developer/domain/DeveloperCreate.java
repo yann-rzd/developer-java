@@ -2,11 +2,14 @@ package fr.yann.developer.domain;
 
 import java.time.LocalDate;
 
+import fr.yann.developer.validation.LegalBirthDate;
+
 public class DeveloperCreate {
 	
 	private String pseudo;
 	private String firstName;
 	private String lastName;
+	@LegalBirthDate
 	private LocalDate birthDate;
 	
 	public DeveloperCreate() {
