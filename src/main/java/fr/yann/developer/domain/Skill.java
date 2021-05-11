@@ -2,13 +2,16 @@ package fr.yann.developer.domain;
 
 import javax.validation.constraints.NotNull;
 
+import fr.yann.developer.validation.Uppercase;
+
 public class Skill {
 	
 	@NotNull
+	@Uppercase
 	private String name;
 
 	public Skill() {
-		super();
+		// Public constructor without arguments
 	}
 	
 	public String getName() {
