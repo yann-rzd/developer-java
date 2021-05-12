@@ -6,16 +6,18 @@ import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Length;
+import fr.yann.developer.validation.CheckDuplicate;
 
+@CheckDuplicate
 public class ProjectCreate {
 	
 	@NotBlank
-	@Length(min = 1, max = 255)
+	@Size(min = 1, max = 255)
 	private String name;
 	@NotBlank
-	@Length(min = 100, max = 1000)
+	@Size(min = 100, max = 1000)
 	private String description;
 	@NotNull
 	@FutureOrPresent
