@@ -11,12 +11,12 @@ import javax.validation.Payload;
 
 @Retention(RUNTIME)
 @Target(FIELD)
-@Constraint(validatedBy = {UppercaseValidator.class})
+@Constraint(validatedBy = { UppercaseValidator.class })
 public @interface Uppercase {
-	
-	String message() default "Have to be written in upper case.";
 
-	Class<?>[] groups() default { };
+    String message() default "Have to be written in upper case.";
 
-	Class<? extends Payload>[] payload() default { };
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
 }

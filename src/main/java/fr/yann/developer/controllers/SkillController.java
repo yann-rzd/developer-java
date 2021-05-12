@@ -14,16 +14,16 @@ import fr.yann.developer.domain.Skill;
 @RestController
 @RequestMapping("/skills")
 public class SkillController {
-	
-	@GetMapping("/{id}")
-	public Skill getById(@PathVariable("id") Long id) {
-		Skill skill = new Skill();
-		skill.setName("Spring boot");
-		return skill;
-	}
-	
-	@PostMapping
-	public void create(@Valid @RequestBody Skill skill) {
-		System.out.println(skill);
-	}
+
+    @GetMapping("/{id}")
+    public Skill getById(@PathVariable("id") Long id) {
+	Skill skill = new Skill();
+	skill.setName("Spring boot");
+	return skill;
+    }
+
+    @PostMapping
+    public void create(@Valid @RequestBody Skill skill) {
+	System.out.println(skill);
+    }
 }

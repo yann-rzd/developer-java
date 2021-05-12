@@ -13,11 +13,11 @@ import javax.validation.Payload;
 @Target(TYPE)
 @Constraint(validatedBy = CheckDuplicateValidator.class)
 public @interface CheckDuplicate {
-	
-	String message() default "The description must not be the same of name";
 
-	Class<?>[] groups() default { };
+    String message() default "The description must not be the same of name";
 
-	Class<? extends Payload>[] payload() default { };
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
 
 }

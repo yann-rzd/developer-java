@@ -19,33 +19,32 @@ import fr.yann.developer.domain.DeveloperPatch;
 
 @RequestMapping("/developers")
 public class DeveloperController {
-	
-	@GetMapping("/{pseudo}")
-	public DeveloperCreate getDevByPseudo(@PathVariable("pseudo") String pseudo) {
-		DeveloperCreate developer = new DeveloperCreate();
-		developer.setPseudo("JackO_Neill");
-		developer.setFirstName("Yann");
-		developer.setLastName("Rouzaud");
-		LocalDate date = LocalDate.of(1993, 8, 31);
-		developer.setBirthDate(date);
-		return developer;
-	}
-	
-	@PostMapping
-	public void createDeveloper(@Valid @RequestBody DeveloperCreate developer) {
-		System.out.println(developer);
-	}
-	
-	@PatchMapping("/{pseudo}/birth-date")
-	public void updateBirthDate(@PathVariable("pseudo") String pseudo, @RequestBody DeveloperPatch partial) {
-		System.out.println("Partial object = " + partial);
-		
+
+    @GetMapping("/{pseudo}")
+    public DeveloperCreate getDevByPseudo(@PathVariable("pseudo") String pseudo) {
+	DeveloperCreate developer = new DeveloperCreate();
+	developer.setPseudo("JackO_Neill");
+	developer.setFirstName("Yann");
+	developer.setLastName("Rouzaud");
+	LocalDate date = LocalDate.of(1993, 8, 31);
+	developer.setBirthDate(date);
+	return developer;
+    }
+
+    @PostMapping
+    public void createDeveloper(@Valid @RequestBody DeveloperCreate developer) {
+	System.out.println(developer);
+    }
+
+    @PatchMapping("/{pseudo}/birth-date")
+    public void updateBirthDate(@PathVariable("pseudo") String pseudo, @RequestBody DeveloperPatch partial) {
+	System.out.println("Partial object = " + partial);
+
 //		  DeveloperCreate developer = new DeveloperCreate();
 //		  developer.setPseudo(pseudo); developer.setFirstName("Yann");
 //		  developer.setLastName("Rouzaud");
 //		  developer.setBirthDate(partial.getBirthDate());
-		 
-		System.out.println("Update birth date of: " + pseudo
-				+ " with new date : " + partial.getBirthDate());
-	}
+
+	System.out.println("Update birth date of: " + pseudo + " with new date : " + partial.getBirthDate());
+    }
 }

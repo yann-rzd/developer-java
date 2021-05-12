@@ -11,12 +11,12 @@ import javax.validation.Payload;
 
 @Retention(RUNTIME)
 @Target(FIELD)
-@Constraint(validatedBy = {LegalBirthDateValidator.class})
+@Constraint(validatedBy = { LegalBirthDateValidator.class })
 public @interface LegalBirthDate {
-	
-	String message() default "You must be a major";
 
-	Class<?>[] groups() default { };
+    String message() default "You must be a major";
 
-	Class<? extends Payload>[] payload() default { };
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
 }

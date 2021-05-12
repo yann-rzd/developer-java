@@ -18,19 +18,20 @@ import fr.yann.developer.domain.ProjectPatch;
 
 @RequestMapping("/project")
 public class ProjectController {
-	
-	@PostMapping
-	public void createProject(@Valid @RequestBody ProjectCreate project) {
-		System.out.println(project);
-	}
-	
-	@PatchMapping("/{name}/update-project")
-	public void updateProject(@PathVariable("name") String name, @Valid @RequestBody ProjectPatch partial) {
-		System.out.println("Nouvelle description : " + partial.getDescription() + "\nNouveau budget : " + partial.getAnnualBudget());
-	}
-	
-	@DeleteMapping("{name}/delete-project")
-	public void deleteProject(@PathVariable("name") String name, @Valid @RequestBody ProjectDelete partial) {
-		System.out.println("La date " + partial.getEndDate() + " vient d'être supprimée");
-	}
+
+    @PostMapping
+    public void createProject(@Valid @RequestBody ProjectCreate project) {
+	System.out.println(project);
+    }
+
+    @PatchMapping("/{name}/update-project")
+    public void updateProject(@PathVariable("name") String name, @Valid @RequestBody ProjectPatch partial) {
+	System.out.println("Nouvelle description : " + partial.getDescription() + "\nNouveau budget : "
+		+ partial.getAnnualBudget());
+    }
+
+    @DeleteMapping("{name}/delete-project")
+    public void deleteProject(@PathVariable("name") String name, @Valid @RequestBody ProjectDelete partial) {
+	System.out.println("La date " + partial.getEndDate() + " vient d'être supprimée");
+    }
 }

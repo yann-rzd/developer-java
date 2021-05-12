@@ -15,15 +15,15 @@ import fr.yann.developer.domain.Team;
 
 @RequestMapping("/teams")
 public class TeamController {
-	
-	@PostMapping
-	public void createTeam(@Valid @RequestBody Team team) {
-		System.out.println(team);
-	}
-	
-	@DeleteMapping("/delete/{name}")
-	public void deleteTeam(@PathVariable("name") String name) {
-		System.out.println("L'équipe " + name + " a été supprimée");
-	}
+
+    @PostMapping
+    public void createTeam(@Valid @RequestBody Team team) {
+	System.out.println(team);
+    }
+
+    @DeleteMapping("/delete/{name}")
+    public void deleteTeam(@PathVariable("name") String name) {
+	System.out.println("L'équipe " + name + " a été supprimée");
+    }
 
 }
